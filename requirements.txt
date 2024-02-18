@@ -1,0 +1,8 @@
+matplotlib==3.7.1
+numpy==1.23.5
+omegaconf==2.3.0
+plotly==5.14.1
+PyYAML==6.0
+tensorflow==2.15.0
+tensorflow-macos==2.15.0
+tensorflow-metal==1.1.0
