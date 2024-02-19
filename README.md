@@ -8,7 +8,7 @@ Semantic segmentation is a crucial task in various fields such as medical imagin
 
 Uses CARLA self-driving car [dataset](https://paperswithcode.com/dataset/carla), The split train/val/test consisted of 0.7/0.2/0.1 . Applies sparse categorical crossentropy for pixelwise prediction. The best epoch scored an accuracy of 0.9809 over the training data and 0.9706 over the validation data.
 
-![image info](ref/accuracy.png)
+<img src="ref/accuracy.png" alt="drawing" width="500"/>
 
 ## Contents
 
