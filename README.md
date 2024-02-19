@@ -13,6 +13,7 @@ Uses CARLA self-driving car [dataset](https://paperswithcode.com/dataset/carla),
 ## Contents
 
 - `data/`: The dataset to be downloaded should be contained under this folder, following this hierarchy:
+
     data
     ├── images
     └── masks
