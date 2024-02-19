@@ -15,7 +15,9 @@ Uses CARLA self-driving car [dataset](https://paperswithcode.com/dataset/carla),
 - `data/`: The dataset to be downloaded should be contained under this folder, following this hierarchy:
 
     data
+
     ├── images
+    
     └── masks
 
 - `model.py`: Implementation of the UNet architecture.
