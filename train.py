@@ -26,15 +26,16 @@ if __name__=="__main__":
     )
     
     # Create a callback that saves the model's weights
-    cp_callback = tf.keras.callbacks.ModelCheckpoint(filepath="checkpoint",
+    cp_callback = tf.keras.callbacks.ModelCheckpoint(filepath="Unet/checkpoint.ckpt",
                                                     save_weights_only=True,
                                                     save_best_only=True,
                                                     verbose=1)
 
-    train_dataset = dataloader.processed_image_ds.cache().shuffle(config.BUFFER_SIZE).batch(config.BATCH_SIZE)
-    model_history = model.fit(train_dataset, epochs=config.EPOCHS, callbacks=[cp_callback])
+    train_dataset = dataloader.train_dataset.cache().shuffle(config.BUFFER_SIZE).batch(config.BATCH_SIZE)
+    val_dataset = dataloader.val_dataset.cache().shuffle(config.BUFFER_SIZE).batch(config.BATCH_SIZE)
+    model_history = model.fit(train_dataset, validation_data=val_dataset, epochs=config.EPOCHS, callbacks=[cp_callback])
     
     plt.plot(model_history.history["accuracy"])
     
     # Plot predicted masks against the true mask
-    infer(model, "checkpoint", train_dataset, 6)
+    infer(model, "Unet/checkpoint.ckpt", dataloader.test_dataset.batch(config.BATCH_SIZE), 6)

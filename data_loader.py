@@ -24,9 +24,12 @@ class DataLoader:
     def preprocess(self):
         image_ds = self.dataset.map(self.process_path)
         self.processed_image_ds = image_ds.map(self.preprocess_sample)
-        for image, mask in self.processed_image_ds.take(1):
-            print(image)
-            print(mask)
+        self.train_dataset, self.val_dataset = tf.keras.utils.split_dataset(
+            self.processed_image_ds, left_size=0.7, right_size=0.3, shuffle=False
+        )
+        self.val_dataset, self.test_dataset = tf.keras.utils.split_dataset(
+            self.val_dataset, left_size=0.8, right_size=0.2, shuffle=False
+        )
     
     
     def process_path(self, image_path, mask_path):
@@ -36,7 +39,7 @@ class DataLoader:
 
         mask = tf.io.read_file(mask_path)
         mask = tf.image.decode_png(mask, channels=self.input_size[-1])
-        mask = tf.math.reduce_max(mask, axis=-1, keepdims=True) #TODO Understand this
+        mask = tf.math.reduce_max(mask, axis=-1, keepdims=True)
         return img, mask
     
     
