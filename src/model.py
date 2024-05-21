@@ -5,7 +5,7 @@ from tensorflow.keras import Input, Model
 
 import numpy as np
 
-from utils import plot, create_mask
+from src.configs.data.utils import plot, create_mask
 
 class UNet_Model:
     def __init__(self, input_size, n_filters, n_classes, activation, initializer) -> None:
