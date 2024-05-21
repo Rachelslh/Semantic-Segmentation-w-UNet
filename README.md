@@ -1,6 +1,7 @@
 # Semantic Segmentation with UNet
 
 This repository contains code for implementing Semantic Segmentation using the UNet architecture. Semantic Segmentation is a computer vision task where the goal is to segment and classify each pixel in an image into a specific class. UNet is a popular architecture for this task, known for its effectiveness in capturing both global and local information.
+This implementation is based on the official paper that is [UNet for Biomedical Image Segmentation](https://arxiv.org/abs/1505.04597)
 
 ## Overview
 
